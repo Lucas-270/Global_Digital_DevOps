@@ -43,4 +43,12 @@ public class EmpresaController {
 		redirect.addFlashAttribute("msg", "Empresa cadastrada com sucesso!");
 		return "redirect:/";
 	}
+	
+	@GetMapping("/companies")
+	public ModelAndView allInfo() {
+		List<Empresa> empresas = repository.findAll();
+		ModelAndView mav = new ModelAndView("companies");
+		mav.addObject("empresas", empresas);
+		return mav;
+	}
 }

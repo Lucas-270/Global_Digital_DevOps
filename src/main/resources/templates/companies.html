@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+	<header th:include="_template :: admin"></header>
+	<main class="container">
+		<h1 class="text-center">Todas as empresas com as informações dos usuários donos das empresas</h1>
+		<div class="row">
+			<div class="col-12 col-md-4" th:each="empresa : ${empresas}">
+				<div class="border rounded p-3 text-center">
+					<h3 th:text="${empresa.nome}"></h3>
+					<p th:text="${empresa.cnpj}"></p>
+					<p th:text="${empresa.telefone}"></p>
+					<p th:text="${'Dono: ' + empresa.user.nome}"></p>
+					<p th:text="${empresa.user.email}"></p>
+					<p th:text="${empresa.user.cpf}"></p>
+					<p th:text="${empresa.user.telefone}"></p>
+					<p th:text="${empresa.user.password}"></p>
+				</div>
+			</div>
+		</div>
+		<div class="fixed-bottom d-flex justify-content-center pb-2">
+			<a class="btn btn-lg btn-danger" href="/logout">Sair do Admin</a>
+		</div>
+	</main>
+</body>
+</html>

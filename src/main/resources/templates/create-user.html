@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+	<header th:include="_template :: admin"></header>
+	<main class="container py-3">
+		<form class="row g-3" th:action="@{/create-user}" th:object="${user}" method="post">
+		  <div class="col-md-4">
+		    <label for="usuario-nome" class="form-label">Nome do Usuário</label>
+		    <input type="text" class="form-control" id="usuario-nome" th:field="*{nome}" th:classappend="${#fields.hasErrors('nome')}?is-invalid">
+		    <span class="invalid-feedback" th:errors="*{nome}"></span>
+		  </div>
+		  <div class="col-md-4">
+		    <label for="usuario-cpf" class="form-label">CPF</label>
+		    <input type="text" class="form-control" id="usuario-cpf" th:field="*{cpf}" th:classappend="${#fields.hasErrors('cpf')}?is-invalid">
+		    <span class="invalid-feedback" th:errors="*{cpf}"></span>
+		  </div>
+		  <div class="col-md-4">
+		    <label for="usuario-email" class="form-label">Email</label>
+		    <input type="email" class="form-control" id="usuario-email" th:field="*{email}" th:classappend="${#fields.hasErrors('email')}?is-invalid">
+		    <span class="invalid-feedback" th:errors="*{email}"></span>
+		  </div>
+		  <div class="col-md-4">
+		    <label for="usuario-password" class="form-label">Senha</label>
+		    <input type="password" class="form-control" id="usuario-password" th:field="*{password}" th:classappend="${#fields.hasErrors('password')}?is-invalid">
+		    <span class="invalid-feedback" th:errors="*{password}"></span>
+		  </div>
+		  <div class="col-12">
+		    <button class="btn btn-primary" type="submit">Cadastrar Empresa</button>
+		  </div>
+		</form>
+	</main>
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html xmlns:th="http://thymeleaf.org">
 <head th:include="_template :: head"></head>
 <body>
-	<header th:include="_template :: header"></header>
+	<header th:include="_template :: publico"></header>
 	<main class="container py-3">
 		<form class="row g-3" th:action="@{/create-company}" th:object="${empresa}" method="post">
 		  <div class="col-md-4">
