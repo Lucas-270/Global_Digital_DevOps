@@ -1,15 +1,9 @@
 package br.com.mercadao99.repository;
 
-import java.util.Optional;
-;
-import br.com.mercadao99.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import br.com.mercadao99.model.User;
 
-    Optional<User> findByEmail(String username);
-
-
+public interface UserRepository extends JpaRepository<User, Long>{
 
 }

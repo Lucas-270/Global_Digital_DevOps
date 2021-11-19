@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+	<header th:include="_template :: header"></header>
+	<main class="container py-3">
+		<form class="row g-3" th:action="@{/create-company}" th:object="${empresa}" method="post">
+		  <div class="col-md-4">
+		    <label for="usuario-nome" class="form-label">Nome do Usuário</label>
+		    <input type="text" class="form-control" id="usuario-nome" th:field="*{user.nome}" th:classappend="${#fields.hasErrors('user.nome')}?is-invalid">
+		    <span class="invalid-feedback" th:errors="*{user.nome}"></span>
+		  </div>
+		  <div class="col-md-4">
+		    <label for="usuario-cpf" class="form-label">CPF</label>
+		    <input type="text" class="form-control" id="usuario-cpf" th:field="*{user.cpf}" th:classappend="${#fields.hasErrors('user.cpf')}?is-invalid">
+		    <span class="invalid-feedback" th:errors="*{user.cpf}"></span>
+		  </div>
+		  <div class="col-md-4">
+		    <label for="usuario-email" class="form-label">Email</label>
+		    <input type="email" class="form-control" id="usuario-email" th:field="*{user.email}" th:classappend="${#fields.hasErrors('user.email')}?is-invalid">
+		    <span class="invalid-feedback" th:errors="*{user.email}"></span>
+		  </div>
+		  <div class="col-md-4">
+		    <label for="empresa-nome" class="form-label">Nome da Empresa</label>
+		    <input type="text" class="form-control" id="empresa-nome" th:field="*{nome}" th:classappend="${#fields.hasErrors('nome')}?is-invalid">
+		    <span class="invalid-feedback" th:errors="*{nome}"></span>
+		  </div>
+		  <div class="col-md-4">
+		    <label for="empresa-cnpj" class="form-label">CNPJ da Empresa</label>
+		    <input type="text" class="form-control" id="empresa-cnpj" th:field="*{cnpj}" th:classappend="${#fields.hasErrors('cnpj')}?is-invalid">
+		    <span class="invalid-feedback" th:errors="*{cnpj}"></span>
+		  </div>
+		  <div class="col-md-4">
+		    <label for="empresa-telefone" class="form-label">Telefone da Empresa</label>
+		    <input type="text" class="form-control" id="empresa-telefone" th:field="*{telefone}" th:classappend="${#fields.hasErrors('telefone')}?is-invalid">
+		    <span class="invalid-feedback" th:errors="*{telefone}"></span>
+		  </div>
+		  <div class="col-md-4">
+		    <label for="usuario-password" class="form-label">Senha</label>
+		    <input type="password" class="form-control" id="usuario-password" th:field="*{user.password}" th:classappend="${#fields.hasErrors('user.password')}?is-invalid">
+		    <span class="invalid-feedback" th:errors="*{user.password}"></span>
+		  </div>
+		  <div class="col-12">
+		    <button class="btn btn-primary" type="submit">Cadastrar Empresa</button>
+		  </div>
+		</form>
+	</main>
+</body>
+</html>
