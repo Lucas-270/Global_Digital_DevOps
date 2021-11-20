@@ -1,0 +1,19 @@
+CREATE TABLE tb_user (
+	id bigint PRIMARY KEY auto_increment,
+	cpf varchar(255),
+	name varchar(255),
+	email varchar(255),
+	password varchar(255),
+	user_id int,
+	constraint fk_user_id foreign key (user_id)
+    references tb_user(id)
+);
+
+CREATE TABLE tb_empresa (
+	id bigint PRIMARY KEY auto_increment,
+	title varchar(200),
+	description TEXT,
+	points int,
+	status int DEFAULT 0,
+	user_id int
+);
